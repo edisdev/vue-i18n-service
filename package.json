@@ -1,0 +1,32 @@
+{
+  "name": "vue-i18n-service",
+  "version": "0.0.1",
+  "description": "Collects SFC i18n's and makes them translatable with one file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "vue-i18n-service": "bin/vue-i18n-service.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f/vue-i18n-service.git"
+  },
+  "keywords": [
+    "vue",
+    "i18n",
+    "export",
+    "import"
+  ],
+  "author": "Fatih Kadir Akin <fatihkadirakin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/f/vue-i18n-service/issues"
+  },
+  "homepage": "https://github.com/f/vue-i18n-service#readme",
+  "dependencies": {
+    "glob": "^7.1.3",
+    "vue-template-compiler": "^2.5.17"
+  }
+}
