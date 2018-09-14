@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const glob = require('glob')
 const fs = require('fs')
+const myjson = require('myjson-api')
 const compiler = require('vue-template-compiler')
 
 function replaceBetween (str, start, end, what) {
@@ -38,7 +39,7 @@ function runImport () {
   })
 }
 
-function runExport () {
+function runExport (fn) {
   glob('src/**/*.vue', (_, files) => {
     const out = {}
     files.forEach(file => {
@@ -49,7 +50,7 @@ function runExport () {
           out[file] = JSON.parse(block.content)
         })
     })
-    console.log(JSON.stringify(out, null, 2))
+    fn ? fn(out) : console.log(JSON.stringify(out, null, 2))
   })
 }
 
@@ -60,6 +61,16 @@ switch (process.argv[2]) {
   case 'export':
     runExport()
     break
+  case 'translate':
+    runExport((out) => {
+      myjson.create(out)
+      .then((response) => {
+        console.log(`Open the following URL to start translation:`)
+        console.log('')
+        console.log(`   http://localhost:8080/#${response.id}`)
+      })
+    })
+    break
   default:
     console.log('vue-i18n-services v' + require('../package.json').version)
     console.log('commands:')
@@ -67,4 +78,6 @@ switch (process.argv[2]) {
     console.log('     Collects all the <i18n> tags in SCF .vue files and exports them in a file\n')
     console.log('   vue-i18n-services import < translations.json')
     console.log('     Distributes all the changes on translations.json file to the related components\n')
+    console.log('   vue-i18n-services translate')
+    console.log('     Opens translation page to translate your UI.\n')
 }
