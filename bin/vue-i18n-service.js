@@ -67,7 +67,7 @@ switch (process.argv[2]) {
       .then((response) => {
         console.log(`Open the following URL to start translation:`)
         console.log('')
-        console.log(`   http://localhost:8080/#${response.id}`)
+        console.log(`   https://f.github.io/vue-i18n-translator/#${response.id}`)
       })
     })
     break
