@@ -58,7 +58,7 @@ Vue I18n Service makes to manage SFC translations easier in a file. It collects 
 
 Open [https://f.github.io/vue-i18n-translator/](https://f.github.io/vue-i18n-translator/) and drop `translations.json` file which you've just generated. It will parse it and generate an useful interface to translate.
 
-![vue-i18n-translator](https://pbs.twimg.com/media/DnAFoKQWsAADU05.png)
+![vue-i18n-translator](https://pbs.twimg.com/media/DnDZ5yYX0AAzJyN.png)
 
 ⬇️`npx vue-i18n-service import < translations.edited.json`
 ```
