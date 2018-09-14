@@ -1,6 +1,6 @@
 {
   "name": "vue-i18n-service",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Collects SFC i18n's and makes them translatable with one file",
   "main": "index.js",
   "scripts": {
