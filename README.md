@@ -40,6 +40,7 @@ Vue I18n Service makes to manage SFC translations easier in a file. It collects 
 ```
 
 ✏️`translations.edited.json`
+
 ```json
 {
   "src/components/Hello.vue": {
@@ -52,6 +53,13 @@ Vue I18n Service makes to manage SFC translations easier in a file. It collects 
   }
 }
 ```
+
+### Editing `translations.json` using Web UI
+
+Open [https://f.github.io/vue-i18n-translator/](https://f.github.io/vue-i18n-translator/) and drop `translations.json` file which you've just generated. It will parse it and generate an useful interface to translate.
+
+![vue-i18n-translator](https://pbs.twimg.com/media/DnAFoKQWsAADU05.png)
+
 ⬇️`npx vue-i18n-service import < translations.edited.json`
 ```
 updating file src/components/Hello.vue
