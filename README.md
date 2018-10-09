@@ -126,6 +126,14 @@ Here is an example:
 }
 ```
 
+### --dir
+
+By default, `vue-i18n-service` looks for SFCs in the `src/` directory, if your components are in another directory, specify it by passing the `--dir` flag:
+
+```bash
+npx vue-i18n-service export --dir=client/ > translations.json
+```
+
 ## Importing `translations.json` file to the SFCs
 
 After bulk changing files, you can distribute import all the files calling `import` command.
