@@ -3,6 +3,7 @@ const glob = require('glob')
 const fs = require('fs')
 const myjson = require('myjson-api')
 const compiler = require('vue-template-compiler')
+const argv = require('yargs').argv
 
 function replaceBetween (str, start, end, what) {
   return str.substring(0, start) + what + str.substring(end)
@@ -40,7 +41,8 @@ function runImport () {
 }
 
 function runExport (fn) {
-  glob('src/**/*.vue', (_, files) => {
+  const dir = argv.dir || 'src/'
+  glob(`${dir}**/*.vue`, (_, files) => {
     const out = {}
     files.forEach(file => {
       const componentAst = compiler.parseComponent(fs.readFileSync(file).toString())
@@ -76,6 +78,8 @@ switch (process.argv[2]) {
     console.log('commands:')
     console.log('   vue-i18n-services export > translations.json')
     console.log('     Collects all the <i18n> tags in SCF .vue files and exports them in a file\n')
+    console.log('     Flags:')
+    console.log('         --dir=src/ Specify the directory where SFCs are located, defaults to src/\n')
     console.log('   vue-i18n-services import < translations.json')
     console.log('     Distributes all the changes on translations.json file to the related components\n')
     console.log('   vue-i18n-services translate')
