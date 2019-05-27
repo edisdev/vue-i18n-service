@@ -40,7 +40,7 @@ function runImport () {
 }
 
 function runExport (fn) {
-  glob('src/**/*.vue', (_, files) => {
+  glob('{src,components,pages}/**/*.vue', (_, files) => {
     const out = {}
     files.forEach(file => {
       const componentAst = compiler.parseComponent(fs.readFileSync(file).toString())
