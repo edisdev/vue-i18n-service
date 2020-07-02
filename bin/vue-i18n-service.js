@@ -3,6 +3,7 @@ const glob = require('glob')
 const fs = require('fs')
 const myjson = require('myjson-api')
 const compiler = require('vue-template-compiler')
+const { nextTick } = require('process')
 
 function replaceBetween (str, start, end, what) {
   return str.substring(0, start) + what + str.substring(end)
@@ -21,6 +22,42 @@ function readData (imported) {
       )
     })
   })
+}
+
+function createLocale (newLocale, extendedLocale) {
+  glob('src/**/*.vue', (_, files) => {
+    const out = {}
+    files.forEach(file => {
+      const componentAst = compiler.parseComponent(fs.readFileSync(file).toString())
+      componentAst.customBlocks
+        .filter(block => block.type === 'i18n')
+        .forEach(block => {
+          let content = JSON.parse(block.content)
+          content[newLocale] = content[extendedLocale]
+          out[file] = content
+        })
+    })
+    readData(JSON.stringify(out))
+    console.log(`Creating ${newLocale} language keys from ${extendedLocale}`)
+  })
+}
+
+function runCreate() {
+  process.stdin.setEncoding('utf8')
+
+  let argv = process.argv
+  switch (argv.length) {
+    case 3:
+      console.log('Please enter the new locale code')
+      break
+    case 4:
+      console.log('Please enter the extended locale code')
+      break
+    default:
+      let newLocale =  argv[3]
+      let extendedLocale = argv[4]
+      createLocale(newLocale, extendedLocale)
+  }
 }
 
 function runImport () {
@@ -60,6 +97,9 @@ switch (process.argv[2]) {
     break
   case 'export':
     runExport()
+    break
+  case 'create':
+    runCreate()
     break
   case 'translate':
     runExport((out) => {
