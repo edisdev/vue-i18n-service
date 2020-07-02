@@ -136,6 +136,14 @@ npx vue-i18n-service import < translations.json
 
 This will update `.vue` files and replace them with changes.
 
+## Creating new locale from other locale
+  You can creating a new locale by copying another locale `create` command
+
+  ```bash
+  npx vue-i18n-service create 'de' 'en'
+  ```
+
+  <img src="./creatingExample.gif"/>
 ## License
 
 MIT.
