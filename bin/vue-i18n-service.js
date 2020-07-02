@@ -3,7 +3,6 @@ const glob = require('glob')
 const fs = require('fs')
 const myjson = require('myjson-api')
 const compiler = require('vue-template-compiler')
-const { nextTick } = require('process')
 
 function replaceBetween (str, start, end, what) {
   return str.substring(0, start) + what + str.substring(end)
