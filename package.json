@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/f/vue-i18n-service.git"
+    "url": "git+https://github.com/edisdev/vue-i18n-service.git"
   },
   "keywords": [
     "vue",
@@ -20,11 +20,16 @@
     "import"
   ],
   "author": "Fatih Kadir Akin <fatihkadirakin@gmail.com>",
+  "contributors": [
+    "Fatih Kadir Akin <fatihkadirakin@gmail.com>",
+    "Hatice Edis <hedis285@gmail.com>",
+    "Paul Gascou-Vaillancourt <paul@paulgv.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/f/vue-i18n-service/issues"
+    "url": "https://github.com/edisdev/vue-i18n-service/issues"
   },
-  "homepage": "https://github.com/f/vue-i18n-service#readme",
+  "homepage": "https://github.com/edisdev/vue-i18n-service#readme",
   "dependencies": {
     "glob": "^7.1.3",
     "myjson-api": "^1.0.1",
