@@ -56,7 +56,7 @@ Vue I18n Service makes to manage SFC translations easier in a file. It collects 
 
 ### Editing `translations.json` using Web UI
 
-Open [https://edis.github.io/vue-i18n-translator/](https://edis.github.io/vue-i18n-translator/) and drop `translations.json` file which you've just generated. It will parse it and generate an useful interface to translate.
+Open [https://edisdev.github.io/vue-i18n-translator/](https://edisdev.github.io/vue-i18n-translator/) and drop `translations.json` file which you've just generated. It will parse it and generate an useful interface to translate.
 
 ![vue-i18n-translator](https://pbs.twimg.com/media/DnDZ5yYX0AAzJyN.png)
 
@@ -148,7 +148,7 @@ This will update `.vue` files and replace them with changes.
   You can creating a new locale by copying another locale `create` command
 
   ```bash
-  npx vue-i18n-service create 'de' 'en'
+  npx vue-i18n-service create 'newlocale' 'extendedLocale'
   ```
 
   <img src="./creatingExample.gif"/>
